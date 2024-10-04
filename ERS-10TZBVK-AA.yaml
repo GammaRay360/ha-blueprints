@@ -102,8 +102,19 @@ blueprint:
       default: []
       selector:
         action: {}
+    automation_mode:
+      name: Automation Mode
+      description: Select the mode for the automation
+      default: queued
+      selector:
+        select:
+          options:
+            - single
+            - restart
+            - queued
+            - parallel
 
-mode: queued
+mode: !input automation_mode
 max_exceeded: silent
 
 trigger_variables:
